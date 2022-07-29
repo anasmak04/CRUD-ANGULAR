@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup,FormBuilder,Validators } from '@angular/forms';
+import { ApiService } from 'src/app/services/api.service';
  
 @Component({
   selector: 'app-dialog',
@@ -9,7 +10,7 @@ import { FormGroup,FormBuilder,Validators } from '@angular/forms';
 export class DialogComponent implements OnInit {
     freshnessList = ["Brand new","second Hand","Refurbished"]
     productForm !: FormGroup
-  constructor(private formBuilder : FormBuilder) {
+  constructor(private formBuilder : FormBuilder ,private api : ApiService) {
 
    }
 
@@ -26,7 +27,17 @@ export class DialogComponent implements OnInit {
   }
 
   AddBtn() {
-    console.log(this.productForm.value)
+    if(this.productForm.valid){
+      this.api.postProduct(this.productForm.value)
+      .subscribe({
+        next:(res) =>{
+          alert("Product added successfuly")
+        },
+        error:()=>{
+          alert("Error while adding product")
+        } 
+      })
+    }
   }
 
 }
