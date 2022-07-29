@@ -25,4 +25,8 @@ export class DialogComponent implements OnInit {
     })
   }
 
+  AddBtn() {
+    console.log(this.productForm.value)
+  }
+
 }
