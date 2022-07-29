@@ -1,5 +1,6 @@
 <h1 mat-dialog-title>add product</h1>
 <div class="mat-dialog-content">
+
     <mat-form-field appearance="outline">
         <mat-label>Product name</mat-label>
         <input matInput placeholder="name">
@@ -18,7 +19,14 @@
           </mat-select>
       </mat-form-field>
 
+      
 
+      <mat-form-field appearance="outline">
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
       
       
 </div>
