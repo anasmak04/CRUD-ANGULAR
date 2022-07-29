@@ -1,6 +1,7 @@
 <h1 mat-dialog-title>add product</h1>
 <div class="mat-dialog-content">
 
+<form action="" [formGroup]="productForm">
     <mat-form-field appearance="outline">
         <mat-label>Product name</mat-label>
         <input matInput placeholder="name">
@@ -39,6 +40,7 @@
         <mat-label>comment</mat-label>
         <textarea matInput></textarea>
     </mat-form-field>
+</form>
 </div>
 
 <div mat-dialog-actions [align]="'end'">

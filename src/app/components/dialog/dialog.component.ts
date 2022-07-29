@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
+import { FormGroup,FormBuilder,Validators } from '@angular/forms';
+ 
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DialogComponent implements OnInit {
     freshnessList = ["Brand new","second Hand","Refurbished"]
-  constructor() { }
+    productForm !: FormGroup
+  constructor(private formBuilder : FormBuilder) {
+
+   }
 
   ngOnInit(): void {
+    this.productForm = this.formBuilder.group({
+      productName : ['',Validators.required],
+      category : ['',Validators.required],
+      freshness : ['',Validators.required],
+      price : ['',Validators.required],
+      comment : ['',Validators.required],
+      date : ['',Validators.required]
+
+    })
   }
 
 }
